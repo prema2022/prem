@@ -1,0 +1,134 @@
+<script>
+
+function btnfind_onclick() {
+
+var jtbxesal=document.getElementById('tbxesal');
+var esal=parseFloat(jtbxesal.value);
+
+esal=isNaN(esal) ? 0 : esal;
+esal=esal===null ? 0 : esal;
+
+if(esal < 0){
+alert('Invalid Input');
+return;
+}
+
+var hra=0,da=0,pf=0;
+var gpay=0,npay=0;
+hra=(esal)*20.0/100;
+da=(esal)*15.0/100;
+pf=(esal)*35.0/100;
+
+gpay=hra + da + pf;
+npay=gpay - pf;
+
+document.getElementById('tbxhra').value=hra;
+
+document.getElementById('tbxda').value=da;
+
+document.getElementById('tbxpf').value=pf;
+
+document.getElementById('tbxgpay').value=gpay;
+
+document.getElementById('tbxnpay').value=npay;
+
+}
+
+
+</script>
+
+<table border="1">
+
+<tr>
+<td>
+Employee ID
+<td>
+<input type="text"
+id="tbxeid"
+placeholer="00000"
+/>
+
+<tr>
+<td>
+Employee Name
+<td>
+<input type="text"
+id="tbxename"
+placeholer="Unknown"
+/>
+
+<tr>
+<td>
+Employee Salary
+<td>
+<input type="text"
+id="tbxesal"
+placeholer="0.0"
+/>
+
+<tr>
+<td>
+House Rent Allowance
+<td>
+<input type="text"
+id="tbxhra"
+placeholer="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+Dearness Allowance
+<td>
+<input type="text"
+id="tbxda"
+placeholer="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+Provident Fund
+<td>
+<input type="text"
+id="tbxpf"
+placeholer="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+Gross Pay 
+<td>
+<input type="text"
+id="tbxgpay"
+placeholer="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+Net pay 
+<td>
+<input type="text"
+id="tbxnpay"
+placeholer="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+<input 
+type="button"
+value="Cancel"
+onclick="location.href=document.URL;"
+/>
+
+<td>
+<input type="button"
+id="btnfind"
+value="Find "
+onclick="btnfind_onclick();"
+/>
+
+<table>

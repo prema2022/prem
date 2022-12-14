@@ -1,0 +1,109 @@
+<script>
+
+function btnfind_onclick(){
+
+var jtbxm1=document.getElementById('tbxm1');
+var jtbxm2=document.getElementById('tbxm2');
+var jtbxtot=document.getElementById('tbxtot');
+var jtbxavg=document.getElementById('tbxavg');
+var jtbxresult=document.getElementById('tbxresult');
+
+var m1=parseFloat(jtbxm1.value);
+var m2=parseFloat(jtbxm2.value);
+
+jtbxm1.value=m1;
+jtbxm2.value=m2;
+jtbxtot.value=m1+m2;
+jtbxavg.value=m1+m2/2;
+if(m1 > 34.4 && m2 > 34.4){
+jtbxresult.value="Pass";
+}
+else{
+jtbxresult.value="Fail";
+}
+}
+
+</script>
+
+<body>
+
+<table border="1">
+<tr>
+<td>
+Roll no.
+<td>
+<input type="text"
+id="tbxrollno"
+/>
+
+<tr>
+<td>
+Student name
+<td>
+<input type="text"
+id="tbxsname"
+/>
+
+<tr>
+<td>
+Mark-1
+<td>
+<input type="text"
+id="tbxm1"
+/>
+
+<tr>
+<td>
+Mark-2
+<td>
+<input type="text"
+id="tbxm2"
+/>
+
+<tr>
+<td>
+Total
+<td>
+<input type="text"
+id="tbxtot"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+Average
+<td>
+<input type="text"
+id="tbxavg"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+Result
+<td>
+<input type="text"
+id="tbxresult"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+<input type="button"
+id="btnfind"
+value="Find"
+name="btnfind"
+onclick="btnfind_onclick();"
+/>
+
+
+
+<td>
+<input type="button"
+id="btncancel"
+value="Cancel"
+name="btncancel"
+onclick="location.href=document.URL;"
+/>
+
+</body>

@@ -1,0 +1,140 @@
+<script>
+
+function btnfind_onclick(){
+
+var jtbxesal=document.getElementById('tbxesal');
+var esal=parseFloat(jtbxesal.value);
+
+esal=isNaN(esal) ? 0 : esal;
+esal=esal===null ? 0 : esal;
+
+if(esal < 0){
+alert('Invalid Input');
+return;
+}
+
+var tax10=0,tax20=0,tax30=0;
+var tottax=0,npay=0;
+
+if(esal > 250000 && esal <= 500000){
+tax10=(esal-250000)*10.0/100;
+}
+
+else
+if(esal > 500000 && esal <= 1000000){
+tax10=25000;
+tax20=(esal-500000)*20.0/100;
+}
+
+else
+if(esal > 1000000){
+tax10=25000;
+tax20=100000;
+tax20=(esal-1000000)*30.0/100;
+}
+
+tottax=tax10 + tax20 + tax30;
+npay=esal-tottax;
+
+document.getElementById('tbxtax10').value=tax10;
+document.getElementById('tbxtax20').value=tax20;
+document.getElementById('tbxtax30').value=tax30;
+document.getElementById('tbxtottax').value=tottax;
+document.getElementById('tbxnpay').value=npay;
+}
+</script>
+
+
+
+<table border="1">
+
+<tr>
+<td> Employee ID
+<td>
+<input type="text"
+id="tbxeid"
+placeholder="00000"
+/>
+
+<tr>
+<td> Employee Name
+<td>
+<input type="text"
+id="tbxename"
+placeholder="Unknown"
+/>
+
+
+<tr>
+<td> Employee Salary
+<td>
+<input type="text"
+id="tbxesal"
+placeholder="0.0"
+/>
+
+<tr>
+<td> Tax 10%
+<td>
+<input type="text"
+id="tbxtax10"
+placeholder="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td>Tax 20%
+<td>
+<input type="text"
+id="tbxtax20"
+placeholder="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td> Tax 30%
+<td>
+<input type="text"
+id="tbxtax30"
+placeholder="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td> Total Tax
+<td>
+<input type="text"
+id="tbxtottax"
+placeholder="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td> Net Pay
+<td>
+<input type="text"
+id="tbxnpay"
+placeholder="0.0"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+<input
+type="button"
+value="cancel"
+onclick="location.href=document.URL;"
+/>
+
+
+<td>
+<input
+type="button"
+value="Find"
+id="btnfind"
+onclick="btnfind_onclick();"
+/>
+
+
+
+</table>
